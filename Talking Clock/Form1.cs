@@ -12,7 +12,7 @@ namespace Talking_Clock
 
         private void textBox_in_TextChanged(object sender, EventArgs e)
         {
-            // Declare variables
+            // Declare variables and defaults
             String[] input = { "" },
                 hourName = { "twelve", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven" },
 
@@ -27,14 +27,18 @@ namespace Talking_Clock
 
             int hour = 0, minute = 0;
 
+            // Check if input contains ":", other wise it isn't proper input
             if (textBox_in.Text.Contains(":"))
             {
                 input = textBox_in.Text.Split(':');
 
+                // Check for hour
                 if (!input[0].Equals(""))
                 {
                     hour = int.Parse(input[0]);
                 }
+
+                // Check for minute
                 if (!input[1].Equals(""))
                 {
                     minute = int.Parse(input[1]);
@@ -43,6 +47,7 @@ namespace Talking_Clock
                 if (hour >= 12)
                     noon = " pm";
 
+                // Append all the strings together, also "fixes" input that is too large
                 output = "It's " + hourName[hour % 12] + " " + minuteName[minute % 60] + noon;
             }
 
