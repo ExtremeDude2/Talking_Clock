@@ -1,7 +1,6 @@
 # Config files
 *.txt
 *.xml
-*.config
 
 # shared objects
 *.dll
@@ -37,4 +36,3 @@
 # bin/obj folders
 bin/
 obj/
-Properties/
